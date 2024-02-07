@@ -1,0 +1,5 @@
+tqdm
+pdf2image
+Pillow
+requests
+ultralytics

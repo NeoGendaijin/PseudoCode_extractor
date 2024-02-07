@@ -83,21 +83,17 @@ def process_image(image_path):
 
 
 def process_paper():
-    # 擬似コードが存在する画像のリスト
     pseudo_code_list = []
 
-    # ディレクトリ内のすべてのファイルを取得
     path_to_images = "./detected_images"
     files = os.listdir(path_to_images)
 
-    # PNGファイルのみを処理
     png_files = [file for file in files if file.endswith(".png")]
 
-    # 各PNGファイルに対してprocess_image関数を呼び出し
     for png_file in tqdm(png_files, desc="Processing images GPT-4"):
         image_path = os.path.join(path_to_images, png_file)
         result_str = process_image(image_path)
-        # result_strがNoneの場合、次の画像へ進む
+        # If result_str is not empty, just go to next image
         if result_str != "":
             pseudo_code_list.append(result_str)
 

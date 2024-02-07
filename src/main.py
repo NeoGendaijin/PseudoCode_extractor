@@ -11,7 +11,7 @@ def find_peudo_code(path_to_paper):
     delete_png_and_images_dir()
 
     pseudo_codes = process_paper()
-    # count, pseudo_codes = 2, ["algo1","algo2"]
+
     if pseudo_codes:
         pseudo_codes_list = []
         for pseudo_code in pseudo_codes:
