@@ -36,7 +36,7 @@ from src.main import process_paper, find_peudo_code
 # How to use
 path_to_paper = "./PDF/pseudocode.pdf"
 
-count, pseudo_codes_list = find_peudo_code(path_to_paper)
+count, pseudo_codes_list = find_peudo_code(path_to_paper,0.6) # put your path and confidence level
 
 print(f"A number of pseudocode: {count}")
 
