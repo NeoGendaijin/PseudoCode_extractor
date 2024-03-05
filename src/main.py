@@ -4,10 +4,10 @@ from tqdm import tqdm
 from .YOLO import imgs2pseudoimgs, img2pseudoimg, convert_all_pdf_to_pngs, delete_png_and_images_dir
 from .GPT import process_image, process_paper
 
-def find_peudo_code(path_to_paper):
+def find_peudo_code(path_to_paper,conf):
 
     convert_all_pdf_to_pngs(path_to_paper)
-    count = imgs2pseudoimgs()
+    count = imgs2pseudoimgs(conf)
     delete_png_and_images_dir()
 
     pseudo_codes = process_paper()

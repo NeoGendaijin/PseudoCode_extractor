@@ -42,9 +42,9 @@ def delete_png_and_images_dir(images_dir="./images/"):
     else:
         print(f"Directory does not exist: {images_dir}")
 
-def img2pseudoimg(image_path,save_dir):
+def img2pseudoimg(image_path,save_dir,conf=0.9):
 
-    results = model.predict(image_path, save=False, conf=0.9,verbose=False)
+    results = model.predict(image_path, save=False, conf=conf,verbose=False)
 
     image = Image.open(image_path)
 
@@ -64,7 +64,7 @@ def img2pseudoimg(image_path,save_dir):
     return len(detected_objects)
 
 
-def imgs2pseudoimgs():
+def imgs2pseudoimgs(conf):
     pseudo_code_count = 0
 
     imgs_dir = './images'
@@ -78,6 +78,6 @@ def imgs2pseudoimgs():
 
     for png_file in tqdm(png_files, desc="Processing images YOLOv8"):
         image_path = os.path.join(imgs_dir, png_file)
-        pseudo_code_count += img2pseudoimg(image_path,save_dir)
+        pseudo_code_count += img2pseudoimg(image_path,save_dir,conf)
 
     return pseudo_code_count
